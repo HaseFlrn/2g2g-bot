@@ -7,8 +7,8 @@ try:
     client = TgtgClient(email=email)
     creds = client.get_credentials()
     d = {
-        'email': email,
         'tgtg': {
+            'email': email,
             'access_token': creds["access_token"],
             'refresh_token': creds["refresh_token"],
             'user_id': creds["user_id"]

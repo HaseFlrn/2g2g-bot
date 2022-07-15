@@ -14,7 +14,8 @@ try:
             'user_id': creds["user_id"]
         },
         'telegram': {
-
+            'token': '',
+            'chat_id': ''
         }
     }
     with open("config.json", "w") as f:

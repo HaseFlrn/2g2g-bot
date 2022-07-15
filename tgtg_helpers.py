@@ -14,8 +14,8 @@ def get_items(client: TgtgClient) -> list:
         item = entry["item"]
         d = {
             "item": {
-                "price_including_taxes": item["price_including_taxes"],
-                "value_including_taxes": item["value_including_taxes"],
+                "price": item["price_including_taxes"],
+                "value": item["value_including_taxes"],
                 "logo_picture": item["logo_picture"],
                 "collection_info": item["collection_info"]
             },

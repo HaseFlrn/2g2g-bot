@@ -1,3 +1,4 @@
 config.json
 results.json
 /__pycache__
+target/

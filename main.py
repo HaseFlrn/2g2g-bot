@@ -1,7 +1,7 @@
 
-from tgtg_helpers import log_in
+from telegram_helpers import send_message
+from tgtg_helpers import get_items, log_in
 from json import load
-import json
 
 
 def load_config() -> dict:
@@ -13,3 +13,20 @@ def load_config() -> dict:
         print("Config-File missing. Run init.py first.")
         exit(1)
     return config
+
+
+def process():
+
+    config = load_config()
+    credentials = config["tgtg"]
+    bot_config = config["telegram"]
+
+    client = log_in(credentials=credentials)
+
+    items = get_items(client=client)
+
+    send_message(items=items, bot_config=bot_config)
+
+
+if __name__ == "__main__":
+    process()

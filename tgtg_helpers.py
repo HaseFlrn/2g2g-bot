@@ -13,18 +13,14 @@ def get_items(client: TgtgClient) -> list:
     for entry in result:
         item = entry["item"]
         d = {
-            "item": {
-                "price": item["price_including_taxes"],
-                "value": item["value_including_taxes"],
-                "logo_picture": item["logo_picture"],
-                "collection_info": item["collection_info"]
-            },
+            "price": item["price_including_taxes"],
+            "value": item["value_including_taxes"],
+            "logo_picture": item["logo_picture"],
+            "collection_info": item["collection_info"],
             "display_name": entry["display_name"],
-            "address": entry["pickup_location"]["address"],
+            "address": entry["pickup_location"]["address"]["address_line"],
             "items_available": entry["items_available"],
             "new_item": entry["new_item"]
         }
         l.append(d)
     return l
-
-

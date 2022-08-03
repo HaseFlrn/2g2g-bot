@@ -2,7 +2,7 @@
 
 ## Problem
 
-I love to use the [2good2go-app](https://https://toogoodtogo.com/en-us). The only problem that troubles me, is that yoou won't get notified when your favourite stores have restocked.
+I love to use the [2good2go-app](https://toogoodtogo.com/en-us). The only problem that troubles me, is that yoou won't get notified when your favourite stores have restocked.
 
 ## Solution
 

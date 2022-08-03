@@ -15,7 +15,7 @@ Since I'm running this script on my Raspberry Pi, I use CronTab to schedule the 
 Make sure you installed and configured python3 and pip correctly.
 Then run:
 ```sh
-pip install -r /path/to/requirements.txt
+pip install -r requirements.txt
 ```
 
 Run the [init.py](init.py) script first and follow the steps (Opening your mailbox on Desktop or a Device without 2g2g-App before might come handy).

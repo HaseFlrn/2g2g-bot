@@ -1,5 +1,5 @@
 
-from telegram_helpers import send_message
+from telegram_helpers import send_message, telegram_bot_sendtext
 from tgtg_helpers import get_items, log_in
 from json import load
 
@@ -22,12 +22,16 @@ def process():
         bot_config = config["telegram"]
 
         client = log_in(credentials=credentials)
+        last_items = []
         while True:
             items = get_items(client=client)
+            if(items != last_items):
+                last_items = items
+                send_message(items=items, bot_config=bot_config)
 
-            send_message(items=items, bot_config=bot_config)
     except:
-        process()
+        telegram_bot_sendtext(message="Bot is broken! Fix it!",
+                              bot_config=load_config()["telegram"])
         print("Some error occurred")
 
 

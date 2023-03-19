@@ -16,16 +16,19 @@ def load_config() -> dict:
 
 
 def process():
+    try:
+        config = load_config()
+        credentials = config["tgtg"]
+        bot_config = config["telegram"]
 
-    config = load_config()
-    credentials = config["tgtg"]
-    bot_config = config["telegram"]
+        client = log_in(credentials=credentials)
+        while True:
+            items = get_items(client=client)
 
-    client = log_in(credentials=credentials)
-
-    items = get_items(client=client)
-
-    send_message(items=items, bot_config=bot_config)
+            send_message(items=items, bot_config=bot_config)
+    except:
+        process()
+        print("Some error occurred")
 
 
 if __name__ == "__main__":

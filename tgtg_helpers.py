@@ -4,7 +4,8 @@ from tgtg import TgtgClient
 def log_in(credentials: dict) -> TgtgClient:
     return TgtgClient(access_token=credentials["access_token"],
                       refresh_token=credentials["refresh_token"],
-                      user_id=credentials["user_id"])
+                      user_id=credentials["user_id"],
+                      cookie=credentials["cookie"])
 
 
 def get_items(client: TgtgClient) -> list:

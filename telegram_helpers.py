@@ -3,10 +3,19 @@ import requests
 
 def telegram_bot_sendtext(message: str, bot_config: dict) -> None:
     if(message != ""):
-        send_text: str = "https://api.telegram.org/bot" + \
-            bot_config["token"] + "/sendMessage?chat_id=" + \
-            bot_config["chat_id"] + "&parse_mode=Markdown&text=" + message
-        res = requests.get(send_text)
+        url: str = "https://api.telegram.org/bot" + \
+            bot_config["token"] + "/sendMessage"
+
+        body: dict = {
+            "chat_id": bot_config["chat_id"],
+            "text": message,
+            "parse_mode": "markdown"
+        }
+
+        res = requests.get(
+            url=url,
+            params={"Content-Type": "application/json"},
+            json=body)
 
 
 def build_restock_message(entry: dict) -> str:

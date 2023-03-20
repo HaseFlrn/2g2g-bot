@@ -26,12 +26,12 @@ def process():
         client = log_in(credentials=credentials)
         last_items = []
         while True:
-            sleep(5*60)  # Sleep 5 minutes
             if not isOutsideWorkingHours():
                 items = get_items(client=client)
                 if(items != last_items):
                     last_items = items
                     send_message(items=items, bot_config=bot_config)
+            sleep(5*60)  # Sleep 5 minutes
     except TgtgAPIError as inst:
         statusCode, content = inst.args
         content = loads(content)
